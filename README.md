@@ -40,9 +40,9 @@ distill_utils
 
 ```
 3. Static Learning
-We use [DC]() for static learning. You can find DC code in this [repo]() and we provide code to load single frame data at utils.py and distill_utils/dataset.py. Or you can use [static memory]() trained by us.
+We use [DC](https://arxiv.org/abs/2006.05929v3) for static learning. You can find DC code in this [repo](https://github.com/VICO-UoE/DatasetCondensation) and we provide code to load single frame data at utils.py and distill_utils/dataset.py. Or you can use [static memory]() trained by us.
 4. Dynamic Fine-tuning
-We have thoroughly documented the parameters employed in our experiments in [Suppl]().
+We have thoroughly documented the parameters employed in our experiments in [Suppl](https://arxiv.org/abs/2312.00362).
 For DM/DM+Ours
 ```
 cd sh/baseline
@@ -56,7 +56,7 @@ cd ../s2d
 bash MTT.sh 0 miniUCF101 100 1
 ```
 
-For MTT/MTT+Ours, it is necessary to first train the expert trajectory (refer [MTT]()).
+For MTT/MTT+Ours, it is necessary to first train the expert trajectory (refer [MTT](https://github.com/georgecazenavette/mtt-distillation)).
 ```
 cd sh/baseline
 # bash buffer.sh GPU_num Dateset
