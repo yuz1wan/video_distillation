@@ -9,5 +9,4 @@ CUDA_VISIBLE_DEVICES=${GPU} python buffer.py \
 --dataset ${DATA} \
 --num_experts 30 \
 --model ConvNet3D \
-#--decay \
-#--preload \
+

@@ -82,12 +82,9 @@ def main(args):
     labels_all = torch.tensor(labels_all, dtype=torch.long, device="cpu")
 
     def get_images(c, n):  # get random n images from class c
-        # import pdb; pdb.set_trace()
         idx_shuffle = np.random.permutation(indices_class[c])[:n]
-        #print("idx_shuffle: ", idx_shuffle)
         if n == 1:
             imgs = dst_train[idx_shuffle[0]][0].unsqueeze(0)
-            #print("shape of img selected: ", imgs.shape)
         else:
             imgs = torch.cat([dst_train[i][0].unsqueeze(0) for i in idx_shuffle], 0)
         return imgs.to(args.device)

@@ -17,17 +17,16 @@ CUDA_VISIBLE_DEVICES=${GPU} python distill_s2d_ms.py \
 --lr_dynamic=1e4 \
 --lr_hal=1e-3 \
 --lr_teacher 0.01 \
---buffer_path /hdd/DATA/video_distill/buffer/buffers_miniUCF_3D \
+--buffer_path ./buffer/${DATA} \
 --Iteration  10000 \
 --model ConvNet3D \
 --eval_mode SS \
 --eval_it 200 \
 --no_train_static \
---path_static /hdd/DATA/video_distill/static_memory/DC/miniUCF_ipc10_new.pt \
+--path_static path_to_static_memory \
+--save_path ./result/ \
 --batch_train 128 \
 --batch_syn 128 \
 --startIt 200 \
---save_path /hdd/DATA/video_distill/ \
 
-# --path_static /Disk1/wangziyu/video_distill/DatasetCondensation/logs/DC_para_it3000/singleUCF50_ConvNetD4_ipc1_1_0_synth/frame_0.pt \
 

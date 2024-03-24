@@ -30,9 +30,3 @@ CUDA_VISIBLE_DEVICES=${GPU} python distill_s2d_ms.py \
 --eval_mode top5 \  # for k400 & ssv2 
 --frames 8 \  # for k400 & ssv2 
 
-
-
-
-# --path_static /Disk1/wangziyu/video_distill/DatasetCondensation/logs/DC_para_it3000/singleUCF50_ConvNetD4_ipc1_1_0_synth/frame_0.pt \
-
-# /home/wangziyu/video_distill/static_memory/DC/

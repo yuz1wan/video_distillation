@@ -332,7 +332,6 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
         print("UCF101 train: ", len(dst_train), "test: ", len(dst_test))
 
     elif dataset == 'singleUCF50':
-        # this is a img dataset, only get 1 frame of each video, 其中split_num和split_id调整选取范围, split_mode是选取帧的方式
         channel = 3
         im_size = img_size
         num_classes = 50
@@ -350,13 +349,9 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
                                             transforms.Normalize(mean=mean, std=std)
                                             ])
         else:
-            transform = transforms.Compose([#transforms.Resize((160,120)),
-                                                #transforms.RandomCrop(im_size),
-                                                #transforms.CenterCrop(im_size),
-                                                #transforms.Resize(im_size),
-                                                transforms.ToTensor(),
-                                                transforms.Normalize(mean=mean, std=std)
-                                                ])
+            transform = transforms.Compose([transforms.ToTensor(),
+                                            transforms.Normalize(mean=mean, std=std)
+                                            ])
 
         dst_train = staticUCF50(path, split="train", transform=transform, frames = 1, split_num = split_num, split_id = split_id, split_mode=split_mode) # no augmentation
         dst_test  = staticUCF50(path, split="test", transform=transform, frames = 1, split_num = split_num, split_id = split_id, split_mode=split_mode)
@@ -365,7 +360,6 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
         print("UCF101 train: ", len(dst_train), "test: ", len(dst_test))
 
     elif dataset == 'singleUCF101':
-        # this is a img dataset, only get 1 frame of each video, 其中split_num和split_id调整选取范围``
         channel = 3
         im_size = img_size
         num_classes = 101
@@ -383,13 +377,10 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
                                             transforms.Normalize(mean=mean, std=std)
                                             ])
         else:
-            transform = transforms.Compose([#transforms.Resize((160,120)),
-                                                #transforms.RandomCrop(im_size),
-                                                #transforms.CenterCrop(im_size),
-                                                #transforms.Resize(im_size),
-                                                transforms.ToTensor(),
-                                                transforms.Normalize(mean=mean, std=std)
-                                                ])
+            transform = transforms.Compose([
+                                            transforms.ToTensor(),
+                                            transforms.Normalize(mean=mean, std=std)
+                                            ])
 
         dst_train = staticUCF101(path, split="train", transform=transform, frames = 1, split_num = split_num, split_id = split_id) # no augmentation
         dst_test  = staticUCF101(path, split="test", transform=transform, frames = 1, split_num = split_num, split_id = split_id)

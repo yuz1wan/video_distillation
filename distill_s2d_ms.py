@@ -86,7 +86,7 @@ def main(args):
             imgs = torch.cat([dst_train[i][0].unsqueeze(0) for i in idx_shuffle], 0)
         return imgs.to(args.device)
 
-    static_syn = torch.randn(size=(num_classes*args.spc, 3, im_size[0], im_size[1]), dtype=torch.float) #默认spc=1
+    static_syn = torch.randn(size=(num_classes*args.spc, 3, im_size[0], im_size[1]), dtype=torch.float)
     dynamic_syn = torch.randn(size=(num_classes, args.dpc, args.frames, 1, im_size[0], im_size[1]), dtype=torch.float)
 
     ''' initialize the hallucinator '''
