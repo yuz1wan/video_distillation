@@ -6,7 +6,7 @@ This is official implementation (preview version) of [Dancing with Still Images:
 In this work, we provide the first systematic study of video distillation and introduce a taxonomy to categorize temporal compression. It first distills the videos into still images as static memory and then compensates the dynamic and motion information with a learnable dynamic memory block.
 ## ToDo
 This is the preview version code of our work, only uploading and validating the main experiments. We will update full code as soon as possible. If there are any questions, please contact me(wangxiaoyi2021@sjtu.edu.cn). 
-- [ ] Upload code for preprocessing datasets.
+- [x] Upload code for preprocessing datasets.
 - [ ] Update code for large-scale datasets.
 - [ ] Upload code for FRePo/FRePo+Ours.
 ## Usage
@@ -17,7 +17,8 @@ git clone git@github.com:yuz1wan/video_distillation.git
 cd video_distillation
 ```
 2. Prepare video datasets.  
-For convenience of use, we preprocess the video datasets into frames.
+For convenience, we use the video dataset in the form of frames. For UCF101 and HMDB51, we use the RGB frames provided in [twostreamfusion](https://github.com/feichtenhofer/twostreamfusion) repository and then resize them. For Kinetics-400 and Something-Something V2, we extract frames using the code in [extract_frames/](./extract_frames/). You can adjust the parameters to extract frames of different sizes and quantities.
+
 ```
 distill_utils
 ├── data
@@ -51,9 +52,9 @@ distill_utils
 └── ...
 
 ```
-3. Static Learning.  
+1. Static Learning.  
 We use [DC](https://arxiv.org/abs/2006.05929v3) for static learning. You can find DC code in this [repo](https://github.com/VICO-UoE/DatasetCondensation) and we provide code to load single frame data at utils.py and distill_utils/dataset.py. Or you can use [static memory](https://drive.google.com/drive/folders/1v6VlW0Ohmu5rDgamTqDeQFiMMIZpKl3v?usp=sharing) trained by us.
-4. Dynamic Fine-tuning.  
+1. Dynamic Fine-tuning.  
 We have thoroughly documented the parameters employed in our experiments in [Suppl](https://arxiv.org/abs/2312.00362).
 For DM/DM+Ours
 ```
