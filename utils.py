@@ -105,7 +105,7 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
     elif dataset == 'ImageNet':
         channel = 3
         # im_size = (128, 128)
-        im_size = (64, 64) # MTT是128，FrePo和ScaleUp是64
+        im_size = (64, 64) 
         num_classes = 1000
 
         mean = [0.485, 0.456, 0.406]
