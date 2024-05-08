@@ -8,7 +8,7 @@ In this work, we provide the first systematic study of video distillation and in
 This is the preview version code of our work, only uploading and validating the main experiments. We will update full code as soon as possible. If there are any questions, please contact me(wangxiaoyi2021@sjtu.edu.cn). 
 - [x] Upload code for preprocessing datasets.
 - [ ] Update code for large-scale datasets.
-- [ ] Upload code for FRePo/FRePo+Ours.
+- [x] Upload code for FRePo/FRePo+Ours.
 ## Usage
 Our method is a plug-and-play module.
 1. Clone our repo.
