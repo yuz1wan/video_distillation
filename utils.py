@@ -331,6 +331,33 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
         
         print("UCF101 train: ", len(dst_train), "test: ", len(dst_test))
 
+    elif dataset == 'singleHMDB51':
+        # this is a img dataset for static learning
+        channel = 3
+        im_size = img_size 
+        num_classes = 51
+
+        mean = [0.485, 0.456, 0.406]
+        std = [0.229, 0.224, 0.225]  # use imagenet transform
+        
+        path = data_path+"/HMDB51"
+        assert os.path.exists(path)
+        if im_size == (64,64):
+            transform = transforms.Compose([transforms.Resize((100,80)),
+                                            transforms.RandomCrop(im_size),
+                                            transforms.ToTensor(),
+                                            transforms.Normalize(mean=mean, std=std)
+                                            ])
+        else:
+            transform = transforms.Compose([transforms.ToTensor(),
+                                            transforms.Normalize(mean=mean, std=std)
+                                            ])
+
+        dst_train = staticHMDB51(path, split="train", transform=transform, frames = 1) # no augmentation
+        dst_test  = staticHMDB51(path, split="test", transform=transform, frames = 1)
+        print("HMDB51 train: ", len(dst_train), "test: ", len(dst_test))
+        class_names = None
+
     elif dataset == 'singleUCF50':
         channel = 3
         im_size = img_size
@@ -344,7 +371,6 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
         if im_size != (112,112):
             transform = transforms.Compose([transforms.Resize((100,80)),
                                             transforms.RandomCrop(im_size),
-                                            #transforms.Resize(im_size),
                                             transforms.ToTensor(),
                                             transforms.Normalize(mean=mean, std=std)
                                             ])
@@ -360,6 +386,7 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
         print("UCF101 train: ", len(dst_train), "test: ", len(dst_test))
 
     elif dataset == 'singleUCF101':
+        # this is a img dataset for static learning
         channel = 3
         im_size = img_size
         num_classes = 101
@@ -389,7 +416,7 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
         print("UCF101 train: ", len(dst_train), "test: ", len(dst_test))
     
     elif dataset == 'singleKinetics400':
-        # this is a img dataset
+        # this is a img dataset for static learning
         channel = 3
         im_size = (64, 64)
         num_classes = 400
@@ -408,7 +435,7 @@ def get_dataset(dataset, data_path, num_workers=0,img_size=(112,112),split_num=1
         class_names = None
 
     elif dataset == 'singleSSv2':
-        # this is a video dataset
+        # this is a img dataset for static learning
         channel = 3
         im_size = (64, 64)
         num_classes = 174
