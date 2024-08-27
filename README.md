@@ -1,14 +1,12 @@
-This is official implementation (preview version) of [Dancing with Still Images: Video Distillation via Static-Dynamic Disentanglement](https://arxiv.org/abs/2312.00362) in CVPR 2024.   
+This is official implementation of [Dancing with Still Images: Video Distillation via Static-Dynamic Disentanglement](https://arxiv.org/abs/2312.00362) in CVPR 2024.   
 **[Ziyu Wang](https://github.com/yuz1wan) \*, [Yue Xu](https://silicx.github.io) \*, [Cewu Lu](https://www.mvig.org) and [Yong-Lu Li](https://dirtyharrylyl.github.io)**   
 <sup> * Equal contribution </sup> <br>
 ## Overview
 ![test](./teaser.png)
 In this work, we provide the first systematic study of video distillation and introduce a taxonomy to categorize temporal compression. It first distills the videos into still images as static memory and then compensates the dynamic and motion information with a learnable dynamic memory block.
-## ToDo
-This is the preview version code of our work, only uploading and validating the main experiments. We will update full code as soon as possible. If there are any questions, please contact me(wangxiaoyi2021@sjtu.edu.cn). 
-- [x] Upload code for preprocessing datasets.
-- [ ] Update code for large-scale datasets.
-- [x] Upload code for FRePo/FRePo+Ours.
+
+If there are any questions, please contact me(wangxiaoyi2021@sjtu.edu.cn). 
+
 ## Usage
 Our method is a plug-and-play module.
 1. Clone our repo.
@@ -52,15 +50,17 @@ distill_utils
 └── ...
 
 ```
-1. Static Learning.  
-We use [DC](https://arxiv.org/abs/2006.05929v3) for static learning. You can find DC code in this [repo](https://github.com/VICO-UoE/DatasetCondensation) and we provide code to load single frame data at utils.py and distill_utils/dataset.py. Or you can use [static memory](https://drive.google.com/drive/folders/1v6VlW0Ohmu5rDgamTqDeQFiMMIZpKl3v?usp=sharing) trained by us.
+
+3. Static Learning.  
+We use [DC](https://arxiv.org/abs/2006.05929v3) for static learning. You can find DC code in this [repo](https://github.com/VICO-UoE/DatasetCondensation) and we provide code to load single frame data at utils.py. singleUCF50, singleHMDB51, singleKinetics400, singleSSv2 are for static learning. You can use them just like MNIST in DC. 
+Or you can use [static memory](https://drive.google.com/drive/folders/1v6VlW0Ohmu5rDgamTqDeQFiMMIZpKl3v?usp=sharing) trained by us.
 1. Dynamic Fine-tuning.  
 We have thoroughly documented the parameters employed in our experiments in [Suppl](https://arxiv.org/abs/2312.00362).
 For DM/DM+Ours
 ```
 cd sh/baseline
 # bash DM.sh GPU_num Dateset Learning_rate IPC
-bash DM.sh 0 miniUCF101 100 1
+bash DM.sh 0 miniUCF101 30 1
 
 
 # for DM+Ours
