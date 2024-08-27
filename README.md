@@ -50,8 +50,11 @@ distill_utils
 └── ...
 
 ```
+3. Baseline.
+For full-dataset training, you can use the dataloaders in distill_utils/dataset.py and **evaluate_synset** function(with mode = 'none') in utils.py.  
 
-3. Static Learning.  
+For coreset selection strategy, we refer to [k-center baseline](https://github.com/VICO-UoE/DatasetCondensation/issues/21) for k-center strategy and [herding baseline](https://github.com/VICO-UoE/DatasetCondensation/issues/15) for herding strategy. Our implementation is in distill_coreset.py.
+1. Static Learning.  
 We use [DC](https://arxiv.org/abs/2006.05929v3) for static learning. You can find DC code in this [repo](https://github.com/VICO-UoE/DatasetCondensation) and we provide code to load single frame data at utils.py. singleUCF50, singleHMDB51, singleKinetics400, singleSSv2 are for static learning. You can use them just like MNIST in DC. 
 Or you can use [static memory](https://drive.google.com/drive/folders/1v6VlW0Ohmu5rDgamTqDeQFiMMIZpKl3v?usp=sharing) trained by us.
 1. Dynamic Fine-tuning.  
