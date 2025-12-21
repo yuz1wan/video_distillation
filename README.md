@@ -5,7 +5,7 @@ This is official implementation of [Dancing with Still Images: Video Distillatio
 ![test](./teaser.png)
 In this work, we provide the first systematic study of video distillation and introduce a taxonomy to categorize temporal compression. It first distills the videos into still images as static memory and then compensates the dynamic and motion information with a learnable dynamic memory block.
 
-If there are any questions, please contact me(wangxiaoyi2021@sjtu.edu.cn). 
+If there are any questions, please contact me(ziyu.wang@sjtu.edu.cn). 
 
 ## Usage
 Our method is a plug-and-play module.
